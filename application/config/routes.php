@@ -52,3 +52,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'frontcontroller';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+//Route Admin
+$route['login'] = 'admincontroller/loginpage';
+$route['login/process'] = 'admincontroller/login';
+$route['logout'] = 'admincontroller/logout';
+$route['dashboard'] = 'admincontroller';
+
+//Route Pembaca
+$route['aboutus'] = 'frontcontroller/about';
+$route['baca'] = 'frontcontroller/detail';
