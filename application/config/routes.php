@@ -59,6 +59,13 @@ $route['login/process'] = 'admincontroller/login';
 $route['logout'] = 'admincontroller/logout';
 $route['dashboard'] = 'admincontroller';
 
+//Route Bacaan
+$route['bacaan/create'] = 'bacaancontroller/create';
+$route['bacaan/create/store'] = 'bacaancontroller/store';
+$route['bacaan/edit/(:any)'] = 'bacaancontroller/edit/$1';
+$route['bacaan/edit/update/(:any)'] = 'bacaancontroller/update/$1';
+$route['bacaan/delete/(:any)'] = 'bacaancontroller/delete/$1';
+
 //Route Pembaca
 $route['aboutus'] = 'frontcontroller/about';
 $route['baca'] = 'frontcontroller/detail';

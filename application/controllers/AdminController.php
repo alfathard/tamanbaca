@@ -2,6 +2,7 @@
 
 /**
  * @property $authmodel
+ * @property $bacaan
  */
 class AdminController extends CI_Controller
 {
@@ -9,16 +10,14 @@ class AdminController extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('AuthModel', 'authmodel');
+		$this->load->model('BacaanModel', 'bacaan');
 	}
 
-
 	public function index(){
-		//halaman dashboard admin
-		if ($this->authmodel->checkuser()) {
-			$this->load->view('admin/index');
-		}else{
-			redirect('login');
-		}
+		if (!$this->authmodel->checkuser()) redirect('login');
+
+		$data['data'] = $this->bacaan->getData();
+		$this->load->view('admin/index', $data);
 	}
 
 	public function loginpage(){

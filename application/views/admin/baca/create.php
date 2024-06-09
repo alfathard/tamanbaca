@@ -4,11 +4,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Taman Baca</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-<!--	<link rel="icon" href="../../assets/img/icon.ico" type="image/x-icon"/>-->
+	<!--	<link rel="icon" href="../../assets/img/icon.ico" type="image/x-icon"/>-->
 
 	<!-- Fonts and icons -->
+	<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
 	<script src="<?= base_url('')?>assets/js/plugin/webfont/webfont.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script>
 		WebFont.load({
 			google: {"families":["Lato:300,400,700,900"]},
@@ -22,6 +22,12 @@
 	<!-- CSS Files -->
 	<link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css')?>">
 	<link rel="stylesheet" href="<?= base_url('assets/css/atlantis.min.css')?>">
+	<style>
+		.ck-editor__editable_inline {
+			min-height: 400px;
+		}
+	</style>
+
 </head>
 <body>
 <div class="wrapper">
@@ -107,7 +113,7 @@
 							<i class="flaticon-right-arrow"></i>
 						</li>
 						<li class="nav-item">
-							<a href="#">List Data</a>
+							<a href="#">Tambah Data</a>
 						</li>
 					</ul>
 				</div>
@@ -115,41 +121,38 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<div class="card-title">
-									Tabel Bacaan
-									<a class="btn btn-primary float-right" style="color: white!important;" href="<?= base_url('bacaan/create')?>">Tambah</a>
+								<div class="card-title">Form Tambah Bacaan</div>
+							</div>
+							<form method="post" action="<?= base_url('bacaan/create/store')?>">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Judul</label>
+												<input name="judul" type="text" class="form-control" id="email" placeholder="Masukan Judul" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Kategori</label>
+												<select name="kategori" class="form-control">
+													<option value="sejarah">Sejarah</option>
+													<option value="dongeng">Dongeng</option>
+													<option value="agama">Agama</option>
+													<option value="lirik">Lirik</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label>Isi</label>
+												<textarea name="isi" id="editor"></textarea>
+											</div>
+											<input type="submit" class="btn btn-success" value="Simpan">
+										</div>
+									</div>
 								</div>
-
-							</div>
-							<div class="card-body">
-								<table class="table table-striped">
-									<thead>
-									<tr>
-										<th>No</th>
-										<th>Judul</th>
-										<th>Kategori</th>
-										<th>Konten</th>
-										<th>Opsi</th>
-									</tr>
-									</thead>
-									<tbody>
-									<?php
-									$no = 1;
-									foreach ($data as $d){?>
-									<tr>
-										<td><?= $no++?></td>
-										<td><?= $d->judul ?></td>
-										<td><?= ucwords($d->kategori) ?></td>
-										<td><?= substr_replace(htmlentities($d->isi), "...", 40) ?></td>
-										<td>
-											<a href="<?= base_url('bacaan/edit/'. $d->id)?>" id="<?= $d->id ?>" class="btn btn-sm btn-secondary">Edit</a>
-											<button id="<?= $d->id ?>" class="btn btn-sm btn-danger hapus">Hapus</button>
-										</td>
-									</tr>
-									<?php } ?>
-									</tbody>
-								</table>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -164,6 +167,23 @@
 		</footer>
 	</div>
 </div>
+<script>
+	ClassicEditor
+		.create( document.querySelector( '#editor' ),{
+			toolbar : [
+				'undo', 'redo',
+				'|', 'bold', 'italic', 'link', 'heading' ,
+				'|', 'numberedList', 'bulletedList', 'blockQuote', 'outdent', 'indent'],
+			language : 'en'
+		} )
+		.then( editor => {
+			console.log( 'Editor was initialized', editor );
+		} )
+		.catch( error => {
+			console.error( 'Error occurred', error );
+		} );
+</script>
+
 <script src="<?= base_url('') ?>assets/js/core/jquery.3.2.1.min.js"></script>
 <script src="<?= base_url('') ?>assets/js/core/popper.min.js"></script>
 <script src="<?= base_url('') ?>assets/js/core/bootstrap.min.js"></script>
@@ -175,31 +195,5 @@
 <script src="<?= base_url('') ?>assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 <!-- Atlantis JS -->
 <script src="<?= base_url('') ?>assets/js/atlantis.min.js"></script>
-<script>
-	$(".hapus").click(function(){
-		var id = $(this).attr("id");
-		Swal.fire({
-			title: "Apakah Kamu Yakin?",
-			text: "Data ini akan dihapus secara permanen",
-			icon: "warning",
-			showCancelButton: true,
-			confirmButtonColor: "#d33",
-			confirmButtonText: "Ya, Hapus"
-		}).then((result) => {
-			if (result.isConfirmed) {
-				$.ajax({
-					url: 'bacaan/delete/'+id,
-					type: 'post',
-					error: function() {
-						alert('Something is wrong');
-					},
-					success: function() {
-						window.location.reload()
-					}
-				});
-			}
-		});
-	});
-</script>
 </body>
 </html>
