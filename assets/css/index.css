@@ -1,0 +1,138 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Divider styling */
+article hr {
+    border: none;
+    border-bottom: 1px solid rgba(218, 213, 213, 0.397); /* Warna dan ketebalan garis */
+    margin: 20px 0; /* Jarak atas dan bawah */
+}
+
+/* Header styling */
+header {
+    background-color: #2E8B57;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+}
+
+header ul li {
+    margin-left: 20px;
+}
+
+header ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+header ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Hero section styling */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 428px;
+    margin-top: 58px; /* Adjust for fixed header */
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    filter: brightness(0.5); /* Adjust the blur effect as needed */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+.hero-overlay h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero-overlay p {
+    font-size: 1.2em;
+}
+
+/* Main content styling */
+main {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+article {
+    margin-bottom: 20px;
+}
+
+article h2 {
+    font-size: 1.5em;
+    color: #2E8B57;
+}
+
+article p {
+    margin: 10px 0;
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Footer styling */
+footer {
+    background-color: #2E8B57;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+}
+
+
+
+
