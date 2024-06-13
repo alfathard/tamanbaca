@@ -1,11 +1,19 @@
 <?php
 
+/**
+ * @property BacaanModel $bacaan
+ */
 class FrontController extends CI_Controller
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('BacaanModel', 'bacaan');
+	}
 
 	public function index(){
-		//halaman awal webnya disini
-		return $this->load->view('front/index');
+		$data['data'] = $this->bacaan->getData();
+		return $this->load->view('front/index', $data);
 	}
 
 	public function about(){
