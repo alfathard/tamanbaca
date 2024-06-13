@@ -22,7 +22,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <img src="<?= base_url('assets/img/hero-home.jpg') ?>" alt="Hero Image">
+        <img src="<?= base_url('assets/img/hero-about.jpg') ?>" alt="Hero Image">
         <div class="hero-overlay">
             <h1>About Us</h1>
             <p>Menjelajahi dunia melalui kata-kata</p>
