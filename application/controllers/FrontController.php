@@ -17,4 +17,9 @@ class FrontController extends CI_Controller
 		//halaman detail bacaan nya
 		$this->load->view('front/baca');
 	}
+
+	public function kategori(){
+		//halaman detail bacaan nya
+		$this->load->view('front/kategori');
+	}
 }
