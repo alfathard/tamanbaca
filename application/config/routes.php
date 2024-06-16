@@ -69,4 +69,4 @@ $route['bacaan/delete/(:any)'] = 'bacaancontroller/delete/$1';
 //Route Pembaca
 $route['aboutus'] = 'frontcontroller/about';
 $route['baca/(:any)'] = 'frontcontroller/detail/$1';
-$route['kategori'] = 'frontcontroller/kategori';
+$route['baca'] = 'frontcontroller/baca';

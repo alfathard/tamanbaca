@@ -19,7 +19,6 @@
                 <li><a href="<?= base_url('/') ?>">Home</a></li>
                 <li><a href="<?= base_url('aboutus') ?>">About Us</a></li>
                 <li><a href="<?= base_url('baca') ?>">Baca</a></li>
-                <li><a href="<?= base_url('kategori') ?>">Kategori</a></li>
             </ul>
         </nav>
     </header>

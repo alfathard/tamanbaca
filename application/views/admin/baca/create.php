@@ -131,6 +131,7 @@
 											<div class="form-group">
 												<label>Judul</label>
 												<input name="judul" type="text" class="form-control" id="email" placeholder="Masukan Judul" required>
+												<div class="invalid-feedback"><?= form_error('judul') ?></div>
 											</div>
 											<div class="form-group">
 												<label>Foto</label>
@@ -151,6 +152,7 @@
 										<div class="col-md-12">
 											<div class="form-group">
 												<label>Isi</label>
+												<span class="text-danger"><?= form_error('isi') ?></span>
 												<textarea name="isi" id="editor"></textarea>
 											</div>
 											<input type="submit" class="btn btn-success" value="Simpan">

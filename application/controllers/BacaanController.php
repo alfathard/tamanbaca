@@ -4,14 +4,17 @@
  * @property AuthModel $authmodel
  * @property BacaanModel $bacaan
  * @property $upload
+ * @property CI_Form_validation $form_validation
  */
 class BacaanController extends CI_Controller
 {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->library('form_validation');
 		$this->load->model('BacaanModel', 'bacaan');
 		$this->load->model('AuthModel', 'authmodel');
+		if (!$this->authmodel->checkuser()) redirect('login');
 	}
 
 	public function index(){
@@ -19,13 +22,16 @@ class BacaanController extends CI_Controller
 	}
 
 	public function create(){
-		if (!$this->authmodel->checkuser()) redirect('login');
-
 		$this->load->view('admin/baca/create');
 	}
 
 	public function store(){
-		if (!$this->authmodel->checkuser()) redirect('login');
+		$this->form_validation->set_rules('judul', 'Judul', 'required');
+		$this->form_validation->set_rules('isi', 'Isi Bacaan', 'required', ['required' => '%s wajib di isi!']);
+
+		if ($this->form_validation->run() == FALSE){
+			return $this->load->view('admin/baca/create');
+		}
 
 		$config['upload_path']          = './assets/blog/';
 		$config['allowed_types']        = 'jpg|png|jpeg';
@@ -51,14 +57,17 @@ class BacaanController extends CI_Controller
 	}
 
 	public function edit($id){
-		if (!$this->authmodel->checkuser()) redirect('login');
-
 		$data['bacaan'] = $this->bacaan->getOne($id);
 		$this->load->view('admin/baca/edit', $data);
 	}
 
 	public function update($id){
-		if (!$this->authmodel->checkuser()) redirect('login');
+		$this->form_validation->set_rules('judul', 'Judul', 'required');
+		$this->form_validation->set_rules('isi', 'Isi Bacaan', 'required', ['required' => '%s wajib di isi!']);
+
+		if ($this->form_validation->run() == FALSE){
+			return $this->load->view('admin/baca/create');
+		}
 
 		$config['upload_path']          = './assets/blog/';
 		$config['allowed_types']        = 'jpg|png|jpeg';
@@ -87,8 +96,6 @@ class BacaanController extends CI_Controller
 	}
 
 	public function delete($id){
-		if (!$this->authmodel->checkuser()) redirect('login');
-
 		$this->deleteImage($id);
 		$this->bacaan->delete($id);
 	}

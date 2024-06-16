@@ -22,9 +22,12 @@ class BacaanModel extends CI_Model
 		$this->db->update($this->tabel, $data, ['idblog' => $id]);
 	}
 
-	public function getData($limit = null){
+	public function getData($limit = null, $kat = null){
 		if (!is_null($limit)){
 			$this->db->limit($limit);
+		}
+		if (!is_null($kat) && $kat != 'all'){
+			$this->db->where('kategori', $kat);
 		}
 
 		$query = $this->db->get($this->tabel);
