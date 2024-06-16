@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @property $authmodel
- * @property $bacaan
+ * @property AuthModel $authmodel
+ * @property BacaanModel $bacaan
  */
 class AdminController extends CI_Controller
 {

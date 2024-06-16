@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?= base_url('assets/css/about.css') ?>">
     <title>Taman Baca - About Us</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -15,7 +18,6 @@
             <ul>
                 <li><a href="<?= base_url('/') ?>">Home</a></li>
                 <li><a href="<?= base_url('aboutus') ?>">About Us</a></li>
-                <li><a href="<?= base_url('baca') ?>">Baca</a></li>
             </ul>
         </nav>
     </header>

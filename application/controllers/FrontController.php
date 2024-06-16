@@ -21,8 +21,8 @@ class FrontController extends CI_Controller
 		$this->load->view('front/about');
 	}
 
-	public function detail(){
-		//halaman detail bacaan nya
-		$this->load->view('front/baca');
+	public function detail($id){
+		$data['data'] = $this->bacaan->getOne($id);
+		$this->load->view('front/baca', $data);
 	}
 }

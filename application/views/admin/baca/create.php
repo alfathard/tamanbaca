@@ -7,7 +7,8 @@
 	<!--	<link rel="icon" href="../../assets/img/icon.ico" type="image/x-icon"/>-->
 
 	<!-- Fonts and icons -->
-	<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+<!--	<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>-->
+	<script src="<?= base_url('')?>assets/js/ckeditor.js"></script>
 	<script src="<?= base_url('')?>assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
 		WebFont.load({
@@ -68,7 +69,7 @@
 								<li>
 									<div class="user-box">
 										<div class="u-text">
-											<h4>Admin</h4>
+											<h4><?= $this->session->userdata('user')->nama ?></h4>
 										</div>
 									</div>
 								</li>
@@ -123,13 +124,17 @@
 							<div class="card-header">
 								<div class="card-title">Form Tambah Bacaan</div>
 							</div>
-							<form method="post" action="<?= base_url('bacaan/create/store')?>">
+							<form method="post" action="<?= base_url('bacaan/create/store')?>" enctype="multipart/form-data">
 								<div class="card-body">
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label>Judul</label>
 												<input name="judul" type="text" class="form-control" id="email" placeholder="Masukan Judul" required>
+											</div>
+											<div class="form-group">
+												<label>Foto</label>
+												<input name="foto" type="file" class="form-control" id="foto" required>
 											</div>
 										</div>
 										<div class="col-md-6">
@@ -173,6 +178,7 @@
 			toolbar : [
 				'undo', 'redo',
 				'|', 'bold', 'italic', 'link', 'heading' ,
+				'|', 'alignment:left', 'alignment:right', 'alignment:center', 'alignment:justify',
 				'|', 'numberedList', 'bulletedList', 'blockQuote', 'outdent', 'indent'],
 			language : 'en'
 		} )

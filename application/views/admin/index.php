@@ -62,7 +62,7 @@
 								<li>
 									<div class="user-box">
 										<div class="u-text">
-											<h4>Admin</h4>
+											<h4><?= $this->session->userdata('user')->nama ?></h4>
 										</div>
 									</div>
 								</li>
@@ -140,7 +140,7 @@
 										<td><?= $no++?></td>
 										<td><?= $d->judul ?></td>
 										<td><?= ucwords($d->kategori) ?></td>
-										<td><?= substr_replace(htmlentities($d->isi), "...", 40) ?></td>
+										<td><?= substr_replace(strip_tags($d->isi), "...", 40) ?></td>
 										<td>
 											<a href="<?= base_url('bacaan/edit/'. $d->id)?>" id="<?= $d->id ?>" class="btn btn-sm btn-secondary">Edit</a>
 											<button id="<?= $d->id ?>" class="btn btn-sm btn-danger hapus">Hapus</button>

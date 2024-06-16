@@ -5,9 +5,18 @@
     box-sizing: border-box;
 }
 
+a{
+	text-decoration: none;
+}
+
 /* Body styling */
 body {
-	font-family: "Montserrat", sans-serif;
+	font-family: "Nunito Sans", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	font-variation-settings:
+			"wdth" 100,
+			"YTLC" 500;
     line-height: 1.6;
     background-color: #fff;
     color: #333;
@@ -200,6 +209,11 @@ article:nth-child(3) {
 article h2 {
     font-size: 2em;
     color: #2E8B57;
+	transition: 0.2s;
+}
+
+article h2:hover{
+	color: black;
 }
 
 article p {

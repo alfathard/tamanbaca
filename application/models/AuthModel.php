@@ -4,19 +4,22 @@
 
 class AuthModel extends CI_Model
 {
-	const SESSION_KEY = 'user_id';
+	const SESSION_KEY = 'user';
+	private $tabel = 'user';
 
 	public function login($username, $password){
+		$this->db->where('username', $username);
+		$query = $this->db->get($this->tabel);
+		$user = $query->row();
 
-		if ($username == 'admin'){
-			if ($password == 'admin888'){
-				$this->session->set_userdata(array(self::SESSION_KEY => $username));
-				return $this->session->has_userdata(self::SESSION_KEY);
+		if ($user){
+			if (md5($password) == $user->password){
+				$this->session->set_userdata('user', $user);
+				return $this->session->has_userdata('user');
 			}
 		}
 
 		return false;
-
 	}
 
 	public function checkuser(){

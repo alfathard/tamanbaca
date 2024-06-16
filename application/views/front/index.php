@@ -8,7 +8,7 @@
     <title>Taman Baca</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -18,7 +18,6 @@
             <ul>
                 <li><a href="<?= base_url('/') ?>">Home</a></li>
                 <li><a href="<?= base_url('aboutus') ?>">About Us</a></li>
-                <li><a href="<?= base_url('baca') ?>">Baca</a></li>
             </ul>
         </nav>
     </header>
@@ -37,9 +36,9 @@
     <main>
 		<?php foreach ($data as $d){?>
 			<article>
-				<h2><?= $d->judul ?></h2>
-				<p><?= substr_replace(htmlentities($d->isi), "...", 160) ?></p>
-				<p class="post-meta">Posted by <b>Taman Baca</b> pada <b><?= DateFormat($d->tanggal, 'd M Y') ?></b></p>
+				<a href="<?= base_url('baca/'.$d->id)?>"><h2><?= $d->judul ?></h2></a>
+				<p><?= substr_replace(strip_tags($d->isi), "...", 160) ?></p>
+				<p class="post-meta">Posted by <b><?= $d->uploader ?></b> pada <b><?= DateFormat($d->tanggal, 'd M Y') ?></b></p>
 			</article>
 			<hr>
 		<?php }?>
