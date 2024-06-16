@@ -14,11 +14,11 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Taman Baca</div>
+			<img src="<?= base_url()?>assets/img/tamanbaca.svg">
             <ul>
-                <li><a href="<?= base_url('/') ?>">Home</a></li>
-                <li><a href="<?= base_url('aboutus') ?>">About Us</a></li>
-                <li><a href="<?= base_url('baca') ?>">Baca</a></li>
+				<li><a href="<?= base_url('/') ?>">Beranda</a></li>
+				<li><a href="<?= base_url('aboutus') ?>">Tentang Kami</a></li>
+				<li><a href="<?= base_url('baca') ?>">Baca</a></li>
             </ul>
         </nav>
     </header>
@@ -27,15 +27,13 @@
     <section class="hero">
         <img src="<?= base_url('assets/img/hero-about.jpg') ?>" alt="Hero Image">
         <div class="hero-overlay">
-            <h1>About Us</h1>
-            <p>Menjelajahi dunia melalui kata-kata</p>
+            <h1>Tentang Kami</h1>
         </div>
     </section>
 
     <!-- Main Content -->
     <main>
         <section class="content">
-            <h2>Tentang Kami</h2>
             <p>Taman Baca adalah platform yang didedikasikan untuk berbagi artikel, cerita, dan informasi yang mendidik serta menginspirasi. Kami percaya bahwa membaca adalah jendela dunia yang dapat membuka wawasan, meningkatkan pengetahuan, dan memberikan inspirasi kepada setiap pembaca.</p>
             <p>Visi kami adalah menjadi sumber informasi terpercaya dan berkualitas yang dapat dinikmati oleh semua kalangan masyarakat. Dengan berbagai topik yang kami sajikan, mulai dari sejarah, budaya, musik, hingga ilmu pengetahuan, kami berharap dapat memenuhi kebutuhan informasi dan hiburan Anda.</p>
             <p>Misi kami adalah menyajikan konten yang bermanfaat, mendidik, dan menghibur dengan selalu mengutamakan kualitas dan akurasi informasi. Kami juga berkomitmen untuk terus berkembang dan berinovasi demi memberikan pengalaman membaca yang terbaik bagi para pembaca setia kami.</p>

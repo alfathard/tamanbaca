@@ -16,11 +16,11 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Taman Baca</div>
+			<img src="<?= base_url()?>assets/img/tamanbaca.svg">
             <ul>
-                <li><a href="<?= base_url('/') ?>">Home</a></li>
-                <li><a href="<?= base_url('aboutus') ?>">About Us</a></li>
-                <li><a href="<?= base_url('baca') ?>">Baca</a></li>
+				<li><a href="<?= base_url('/') ?>">Beranda</a></li>
+				<li><a href="<?= base_url('aboutus') ?>">Tentang Kami</a></li>
+				<li><a href="<?= base_url('baca') ?>">Baca</a></li>
             </ul>
         </nav>
     </header>
@@ -40,7 +40,7 @@
             <label for="category">Pilih Kategori:</label>
             <select id="category" name="category">
                 <option value="all">Semua</option>
-                <option value="novel" <?php if ($kategori == 'novel') echo 'selected'?>>Novel</option>
+                <option value="dongeng" <?php if ($kategori == 'dongeng') echo 'selected'?>>Dongeng</option>
                 <option value="lirik" <?php if ($kategori == 'lirik') echo 'selected'?>>Lirik</option>
                 <option value="sejarah" <?php if ($kategori == 'sejarah') echo 'selected'?>>Sejarah</option>
                 <option value="agama" <?php if ($kategori == 'agama') echo 'selected'?>>Agama</option>

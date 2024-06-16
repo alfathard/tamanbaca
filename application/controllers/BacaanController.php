@@ -18,11 +18,16 @@ class BacaanController extends CI_Controller
 	}
 
 	public function index(){
-		$this->load->view('admin/index');
+		$data['content'] = 'admin/index';
+		$data['data'] = $this->bacaan->getData();
+
+		$this->load->view('admin/master', $data);
 	}
 
 	public function create(){
-		$this->load->view('admin/baca/create');
+		$data['content'] = 'admin/baca/create';
+
+		$this->load->view('admin/master', $data);
 	}
 
 	public function store(){
@@ -58,7 +63,9 @@ class BacaanController extends CI_Controller
 
 	public function edit($id){
 		$data['bacaan'] = $this->bacaan->getOne($id);
-		$this->load->view('admin/baca/edit', $data);
+		$data['content'] = 'admin/baca/edit';
+
+		$this->load->view('admin/master', $data);
 	}
 
 	public function update($id){

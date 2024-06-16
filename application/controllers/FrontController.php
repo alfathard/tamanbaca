@@ -12,7 +12,7 @@ class FrontController extends CI_Controller
 	}
 
 	public function index(){
-		$data['data'] = $this->bacaan->getData();
+		$data['data'] = $this->bacaan->getData(5);
 		return $this->load->view('front/index', $data);
 	}
 

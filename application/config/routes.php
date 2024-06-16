@@ -57,7 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'admincontroller/loginpage';
 $route['login/process'] = 'admincontroller/login';
 $route['logout'] = 'admincontroller/logout';
-$route['dashboard'] = 'admincontroller';
+$route['dashboard'] = 'bacaancontroller';
 
 //Route Bacaan
 $route['bacaan/create'] = 'bacaancontroller/create';
