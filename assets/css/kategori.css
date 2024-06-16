@@ -1,0 +1,152 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Header styling */
+header {
+    background-color: #2E8B57;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+}
+
+header ul li {
+    margin-left: 20px;
+}
+
+header ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+header ul li a:hover {
+    text-decoration: underline;
+    transform: scale(1.1);
+    color: #FFD700; /* Optional: Change color on hover */
+}
+
+/* Hero section styling */
+.hero {
+    background-color: #2E8B57;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 58px; /* Adjust for fixed header */
+}
+
+.hero-overlay h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero-overlay p {
+    font-size: 1.2em;
+} 
+
+/* Main content styling */
+main {
+    max-width: 1100px;
+    margin: 80px auto; /* Adjust for fixed header */
+    padding: 20px;
+}
+
+/* Category selector styling */
+.category-selector {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.category-selector label {
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: #2E8B57;
+    font-weight: bold;
+}
+
+.category-selector select {
+    padding: 10px 15px;
+    font-size: 1.1em;
+    border: 2px solid #2E8B57;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.category-selector select:hover {
+    border-color: #3CB371;
+}
+
+.category-selector select:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* Category content styling */
+.category-content {
+    display: none;
+    margin: 20px 0;
+}
+
+.category-content h2 {
+    font-size: 1.5em;
+    color: #2E8B57;
+    margin-bottom: 10px;
+}
+
+.category-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.category-content ul li {
+    margin-bottom: 5px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #2E8B57;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+}
