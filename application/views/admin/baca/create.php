@@ -29,12 +29,12 @@
 									<div class="form-group">
 										<label>Judul</label>
 										<input name="judul" type="text" class="form-control" id="email"
-											   placeholder="Masukan Judul" required>
-										<div class="invalid-feedback"><?= form_error('judul') ?></div>
+											   placeholder="Masukan Judul" value="<?= set_value('judul')?>">
+										<span class="text-danger"><?= form_error('judul') ?></span>
 									</div>
 									<div class="form-group">
 										<label>Foto</label>
-										<input name="foto" type="file" class="form-control" id="foto" required>
+										<input name="foto" type="file" class="dropify" id="foto" data-default-file="" data-max-file-size="3M" data-allowed-formats="landscape" data-max-file-size-preview="3M" data-allowed-file-extensions="png jpg jpeg" required>
 									</div>
 								</div>
 								<div class="col-md-6">

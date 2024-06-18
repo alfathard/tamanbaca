@@ -10,6 +10,7 @@
 	<script src="<?= base_url('')?>assets/js/plugin/webfont/webfont.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="<?= base_url('')?>assets/js/ckeditor.js"></script>
+	<link rel="stylesheet" href="<?= base_url('')?>assets/js/plugin/dropify/css/dropify.min.css">
 	<script>
 		WebFont.load({
 			google: {"families":["Lato:300,400,700,900"]},
@@ -121,7 +122,9 @@
 <script src="<?= base_url('') ?>assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 <!-- Atlantis JS -->
 <script src="<?= base_url('') ?>assets/js/atlantis.min.js"></script>
+<script src="<?= base_url('')?>assets/js/plugin/dropify/js/dropify.min.js"></script>
 <script>
+	$('.dropify').dropify();
 	ClassicEditor
 		.create( document.querySelector( '#editor' ),{
 			toolbar : [

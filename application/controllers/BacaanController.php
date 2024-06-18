@@ -31,34 +31,37 @@ class BacaanController extends CI_Controller
 	}
 
 	public function store(){
-		$this->form_validation->set_rules('judul', 'Judul', 'required');
+		$this->form_validation->set_rules('judul', 'Judul', 'required', ['required' => '%s wajib di isi!']);
 		$this->form_validation->set_rules('isi', 'Isi Bacaan', 'required', ['required' => '%s wajib di isi!']);
 
 		if ($this->form_validation->run() == FALSE){
-			return $this->load->view('admin/baca/create');
-		}
+			$dat['content'] = 'admin/baca/create';
 
-		$config['upload_path']          = './assets/blog/';
-		$config['allowed_types']        = 'jpg|png|jpeg';
-		$config['encrypt_name'] 		= TRUE;
-		$config['max_size']             = 3024;
-
-		$this->load->library('upload', $config);
-		if (!$this->upload->do_upload('foto')){
-			print_r($this->upload->display_errors());
+			$this->load->view('admin/master', $dat);
 		}else{
-			$foto = $this->upload->data();
+			$config['upload_path']          = './assets/blog/';
+			$config['allowed_types']        = 'jpg|png|jpeg';
+			$config['encrypt_name'] 		= TRUE;
+			$config['max_size']             = 3024;
 
-			$data['judul'] = ucwords($this->input->post('judul'));
-			$data['kategori'] = $this->input->post('kategori');
-			$data['isi'] = $this->input->post('isi');
-			$data['uploader'] = $this->session->userdata('user')->nama;
-			$data['foto'] = $foto['file_name'];
+			$this->load->library('upload', $config);
+			if (!$this->upload->do_upload('foto')){
+				print_r($this->upload->display_errors());
+			}else{
+				$foto = $this->upload->data();
 
-			$this->bacaan->save($data);
+				$data['judul'] = ucwords($this->input->post('judul'));
+				$data['kategori'] = $this->input->post('kategori');
+				$data['isi'] = $this->input->post('isi');
+				$data['uploader'] = $this->session->userdata('user')->nama;
+				$data['foto'] = $foto['file_name'];
 
-			redirect('dashboard');
+				$this->bacaan->save($data);
+
+				redirect('dashboard');
+			}
 		}
+
 	}
 
 	public function edit($id){
@@ -73,33 +76,37 @@ class BacaanController extends CI_Controller
 		$this->form_validation->set_rules('isi', 'Isi Bacaan', 'required', ['required' => '%s wajib di isi!']);
 
 		if ($this->form_validation->run() == FALSE){
-			return $this->load->view('admin/baca/create');
-		}
+			$data['bacaan'] = $this->bacaan->getOne($id);
+			$data['content'] = 'admin/baca/edit';
 
-		$config['upload_path']          = './assets/blog/';
-		$config['allowed_types']        = 'jpg|png|jpeg';
-		$config['encrypt_name'] 		= TRUE;
-		$config['max_size']             = 3024;
+			$this->load->view('admin/master', $data);
+		}else{
+			$config['upload_path']          = './assets/blog/';
+			$config['allowed_types']        = 'jpg|png|jpeg';
+			$config['encrypt_name'] 		= TRUE;
+			$config['max_size']             = 3024;
 
-		$this->load->library('upload', $config);
+			$this->load->library('upload', $config);
 
-		$data['judul'] = ucwords($this->input->post('judul'));
-		$data['kategori'] = $this->input->post('kategori');
-		$data['isi'] = $this->input->post('isi');
-		$data['uploader'] = $this->session->userdata('user')->nama;
+			$data['judul'] = ucwords($this->input->post('judul'));
+			$data['kategori'] = $this->input->post('kategori');
+			$data['isi'] = $this->input->post('isi');
+			$data['uploader'] = $this->session->userdata('user')->nama;
 
-		if (!empty($_FILES['foto'])) {
-			if (!$this->upload->do_upload('foto')){
-				print_r($this->upload->display_errors());
-			}else{
-				if ($foto = $this->upload->data()){
-					$this->deleteImage($id);
-					$data['foto'] = $foto['file_name'];
+			if (!empty($_FILES['foto'])) {
+				if (!$this->upload->do_upload('foto')){
+					print_r($this->upload->display_errors());
+				}else{
+					if ($foto = $this->upload->data()){
+						$this->deleteImage($id);
+						$data['foto'] = $foto['file_name'];
+					}
 				}
 			}
+
+			if ($this->bacaan->update($id, $data)) redirect('dashboard');
 		}
 
-		if ($this->bacaan->update($id, $data)) redirect('dashboard');
 	}
 
 	public function delete($id){

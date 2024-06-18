@@ -34,7 +34,7 @@
 									</div>
 									<div class="form-group">
 										<label>Foto</label>
-										<input name="foto" type="file" class="form-control" id="foto">
+										<input name="foto" type="file" class="dropify" id="foto" data-default-file="<?= base_url('assets/blog/'. $bacaan->foto) ?>" data-max-file-size="3M" data-allowed-formats="landscape" data-max-file-size-preview="3M" data-allowed-file-extensions="png jpg jpeg">
 									</div>
 								</div>
 								<div class="col-md-6">
